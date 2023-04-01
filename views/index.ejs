@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVC - Products</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/icons/bootstrap-icons.css" />
+    <script src="/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <h1 class="mt-5">MVC - Products CRUD</h1>
+            <a href="/add">
+                <button type="button" class="btn btn-primary mb-3 mt-5">
+                    <i class="bi bi-plus"></i> Add new
+                </button>
+            </a>
+        
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Price</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach(result => { %>
+                  <tr>
+                    <td> 
+                        <img style="width: 6rem" src="<%= result.image %>"/>
+                    </td>
+                    <td style="vertical-align: middle;"><%= result.name %></td>
+                    <td style="vertical-align: middle;"><%= result.brand %></td>
+                    <td style="vertical-align: middle;"><%= result.price %></td>
+                    <td style="vertical-align: middle;">
+                        <a href="/edit/<%= result.id %>">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <a href="/delete/<%= result.id %>">
+                            <i class="bi bi-trash text-danger"></i>
+                        </a>
+                    </td>
+                  </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</body>
+</html>
